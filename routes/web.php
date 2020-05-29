@@ -18,15 +18,21 @@ Route::get('/', function (\Illuminate\Http\Request $request) {
     $permission = ['add user'];
 
     if ($user->can($permission)) {
-    	return 'role has permissions!';
+    	$user->withdrawPermissionTo($permission);
     }
     $user->givePermissionTo($permission);
+
+    return new \Illuminate\Http\Response('hello',200);
+
+    // for detach 
 
     // for check role use  hasRole methode
 
     // for check permission use  can methode
 
-    // for give permission use  can methode
+    // for give permission use  givePermissionTo methode
+
+    // for withdraw permission use  withdrawPermissionTo methode
 
     // return new \Illuminate\Http\Response('hello', 200);
 });
