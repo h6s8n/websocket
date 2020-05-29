@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function (\Illuminate\Http\Request $request) {
     $user = $request->user();
-    dump($user->hasPermissionTo('add user'));
+    dump($user->can('add user'));
 
     // return new \Illuminate\Http\Response('hello', 200);
 });
