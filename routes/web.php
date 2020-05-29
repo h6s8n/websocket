@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function (\Illuminate\Http\Request $request) {
     $user = $request->user();
-    dd($user->hasRole('admin'));
+    dump($user->hasRole('admin'));
 
     // return new \Illuminate\Http\Response('hello', 200);
 });
