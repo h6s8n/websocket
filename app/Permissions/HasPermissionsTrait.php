@@ -1,27 +1,27 @@
 <?php
 
 namespace App\Permissions;
-
+use Illuminate\Support\Arr;
 use App\{Role, Permission};
 
 trait HasPermissionsTrait
 {
     public function givePermissionTo(...$permissions)
     {
-        $permissions = $this->getAllPermissions(array_flatten($permissions));
+        $permissions = $this->getAllPermissions(arr::flatten($permissions));
 
-        if ($permissions === null) {
+            if ($permissions === null) {
+                return $this;
+            }
+
+            $this->permissions()->saveMany($permissions);
+
             return $this;
-        }
-
-        $this->permissions()->saveMany($permissions);
-
-        return $this;
     }
 
     public function withdrawPermissionTo(...$permissions)
     {
-        $permissions = $this->getAllPermissions(array_flatten($permissions));
+        $permissions = $this->getAllPermissions(arr::flatten($permissions));
 
         $this->permissions()->detach($permissions);
 

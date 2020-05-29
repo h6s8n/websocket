@@ -15,7 +15,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function (\Illuminate\Http\Request $request) {
     $user = $request->user();
-    dump($user->can('add user'));
+    if ($user->can('add user')) {
+    	return 'role has permissions!';
+    }
+    $user->givePermissionTo('add user');
+
+    // for check role use  hasRole methode
+
+    // for check permission use  can methode
+
+    // for give permission use  givePermissionTo methode
 
     // return new \Illuminate\Http\Response('hello', 200);
 });
