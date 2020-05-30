@@ -14,8 +14,13 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    @can("add user")
+                    <a href="#">test can method "add user"</a>
+                    @endcan
+
                 </div>
+
+
             </div>
         </div>
     </div>

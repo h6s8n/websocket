@@ -34,6 +34,8 @@ Route::get('/', function (\Illuminate\Http\Request $request) {
 
     // for withdraw permission use  withdrawPermissionTo methode
 
+    // for update permission use  updatePermissions methode
+
     // return new \Illuminate\Http\Response('hello', 200);
 });
 
