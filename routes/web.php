@@ -50,4 +50,23 @@ Route::middleware(['web', 'verified'])->group(function () {
     Route::get('/home', 'HomeController@index')->name('home');
 });
 
+Route::middleware(['role:admin,add user', 'verified'])->group(function () {
+    //
+    Route::get('/admin', function(){
+    	return 'Admin panel';
+    });
+});
+
+// Route::group(['middleware' => ['role:admin','verified']], function () {
+//     Route::group(['middleware' => 'role:admin,add user'], function () {
+//         Route::get('/admin/users', function () {
+//             return 'add users in admin panel';
+//         });
+//     });
+
+//     Route::get('/admin', function () {
+//         return 'Admin panel';
+//     });
+// });
+
 
