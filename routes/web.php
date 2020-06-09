@@ -13,16 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function (\Illuminate\Http\Request $request) {
-    $user = $request->user();
-    $permission = ['add user'];
+// Route::get('/', function (\Illuminate\Http\Request $request) {
+//     $user = $request->user();
+//     $permission = ['add user'];
 
-    if ($user->can($permission)) {
-    	$user->withdrawPermissionTo($permission);
-    }
-    $user->givePermissionTo($permission);
+//     if ($user->can($permission)) {
+//     	$user->withdrawPermissionTo($permission);
+//     }
+//     $user->givePermissionTo($permission);
 
-    return new \Illuminate\Http\Response('hello',200);
+//     return new \Illuminate\Http\Response('hello',200);
 
     // for detach 
 
@@ -37,7 +37,7 @@ Route::get('/', function (\Illuminate\Http\Request $request) {
     // for update permission use  updatePermissions methode
 
     // return new \Illuminate\Http\Response('hello', 200);
-});
+// });
 
 // Route::get('/', function () {
 //     return view('welcome');
