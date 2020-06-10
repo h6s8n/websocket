@@ -10,7 +10,7 @@ class Verification extends Model
 
 	use SoftDeletes;
     
-	protect $fillable =[
+	protected $fillable =[
 		'name',
 		'family',
 		'national_card',
@@ -27,5 +27,10 @@ class Verification extends Model
         public function user()
     {
         return $this->belongsTo('App\User');
+    }
+
+        public function getRouteKeyName()
+    {
+        return 'identifier';
     }
 }
