@@ -43,7 +43,7 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Auth::routes(['verify' => true]);
+Auth::routes(['verify' => true , 'individualVerify' => true]);
 
 Route::middleware(['web', 'verified'])->group(function () {
     //
