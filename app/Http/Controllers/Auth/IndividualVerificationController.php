@@ -21,5 +21,6 @@ class IndividualVerificationController extends Controller
         $this->middleware('signed')->only('showForm', 'sendForm');
         $this->middleware('verified');
         $this->middleware('throttle:6,1')->only('showForm', 'sendForm');
+        
     }
 }
