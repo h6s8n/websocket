@@ -11,19 +11,20 @@ trait VerifiesIndividualVerification
 {
     public function show(Request $request)
     {
-    	dd("hi");
+    	return view('auth.security');
+    	
     }
 
 
     public function showForm(Request $request)
     {
-
+    	dd("showform");
     }
 
 
     public function sendForm(Request $request)
     {
-
+    	dd("sendform");
     }
 
 }
