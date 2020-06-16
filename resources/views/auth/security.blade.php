@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    {{ __('to access websites you can begin the Individual Verification process by following the link.') }}
+                    {{ __('to access the websites you can begin the Individual Verification process by following the link.') }}
                     {{-- {{ __('If you did not receive the email') }}, --}}
                     <form class="d-inline" method="POST" action="{{ route('security.verify') }}">
                         @csrf
