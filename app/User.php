@@ -1,6 +1,7 @@
 <?php
 
 namespace App;
+use App\Auth\MustVerifyIndividualVerification;
 use App\Permissions\HasPermissionsTrait;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;

@@ -1,14 +1,15 @@
 <?php
 
 namespace App;
-
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Auth\MustVerifyIndividualVerification;
 
 class Verification extends Model
 {
 
-	use SoftDeletes;
+	use SoftDeletes , MustVerifyIndividualVerification;
     
 	protected $fillable =[
 		'name',
@@ -27,6 +28,11 @@ class Verification extends Model
         public function user()
     {
         return $this->belongsTo('App\User');
+    }
+
+        public function scopeFinished(Builder $builder)
+    {
+        return $builder->where('finished', true);
     }
 
         public function getRouteKeyName()
