@@ -16,10 +16,14 @@
 
                     {{ __('to access the websites you can begin the Individual Verification process by following the link.') }}
                     {{-- {{ __('If you did not receive the email') }}, --}}
-                    <form class="d-inline" method="POST" action="{{ route('security.verify') }}">
+{{--                     <form class="d-inline" method="GET" action="{{ route('security.verify') }}">
                         @csrf
                         <button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{ __('Get Started') }}</button>.
-                    </form>
+
+                    </form> --}}
+                    <a class="btn btn-link p-0 m-0 align-baseline" href="{{ route('security.verify') }}">
+                        {{ __('Get Started') }}.
+                    </a>
                 </div>
             </div>
         </div>
