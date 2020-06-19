@@ -6,9 +6,12 @@ use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Auth\Events\Verified;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Foundation\Auth\RedirectsUsers;
 
 trait VerifiesIndividualVerification
 {
+	use RedirectsUsers;
+
     public function show(Request $request)
     {
     	// dd(! is_null($this->email_verified_at));
@@ -26,7 +29,7 @@ trait VerifiesIndividualVerification
         //     'files' => $files
         // ]);
 
-    	return view('auth.security.notice');
+    	// return view('auth.security.notice');
     	
     }
 

@@ -17,9 +17,9 @@ class IndividualVerificationController extends Controller
 
 	    public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
         // $this->middleware('signed')->only('showForm', 'sendForm');
-        $this->middleware('verified');
+        // $this->middleware('verified');
         // $this->middleware('throttle:6,1')->only('showForm', 'sendForm');
         
     }

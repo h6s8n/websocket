@@ -13,7 +13,7 @@ trait MustVerifyIndividualVerification
      */
     public function hasVerifiedIndividualVerification()
     {
-    	dd(! is_null($this->finished));
+    	dd(! is_null($this->email_verified_at));
         return ! is_null($this->email_verified_at);
     } 
 

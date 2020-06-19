@@ -27,9 +27,9 @@ class CreateVerificationsTable extends Migration
             $table->string('card_number');
             $table->string('sheba');
             $table->string('national_card_image_address');
-            $table->boolean('started')->->nullable();
-            $table->boolean('approved')->->nullable();
-            $table->boolean('finished')->->nullable();
+            $table->timestamp('started')->nullable();
+            $table->timestamp('approved')->nullable();
+            $table->timestamp('finished')->nullable();
             $table->softDeletes();
             $table->timestamps();
 
