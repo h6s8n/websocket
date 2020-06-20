@@ -22,8 +22,6 @@ trait VerifiesIndividualVerification
                 : view('auth.verify');
 
 
-
-
         // $files = auth()->user()->files()->latest()->finished()->get();
         // return view('account.files.index', [
         //     'files' => $files
