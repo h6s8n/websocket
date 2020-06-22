@@ -3,8 +3,10 @@
 namespace App\Providers;
 use Gate;
 use App\Permission;
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+
 
 class PermissionsServiceProvider extends ServiceProvider
 {
@@ -25,6 +27,7 @@ class PermissionsServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+    	$this->registerPolicies();
     	if (Schema::hasTable('permissions')) {
 	        Permission::get()->map(function ($permission) {
 	            Gate::define($permission->name, function ($user) use ($permission) {
