@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-// use App\Auth\MustVerifyIndividualVerification;
+use App\Auth\MustVerifyIndividualVerification;
 use App\Permissions\HasPermissionsTrait;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -9,9 +9,9 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use Notifiable, HasPermissionsTrait;
+    use Notifiable, HasPermissionsTrait,MustVerifyIndividualVerification;
 
-    /**
+    /** 
      * The attributes that are mass assignable.
      *
      * @var array

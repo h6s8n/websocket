@@ -25,11 +25,14 @@ class PermissionsServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Permission::get()->map(function ($permission) {
-            Gate::define($permission->name, function ($user) use ($permission) {
-                return $user->hasPermissionTo($permission);
-            });
-        });
+    	if (Schema::hasTable('permissions')) {
+    		
+	        Permission::get()->map(function ($permission) {
+	            Gate::define($permission->name, function ($user) use ($permission) {
+	                return $user->hasPermissionTo($permission);
+	            });
+	        });
+	    }
 
         Blade::directive('role', function ($role) {
             return "<?php if (auth()->check() && auth()->user()->hasRole({$role})): ?>";
