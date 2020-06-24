@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+// use App\Support\Facades\Route as AppRout;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -39,13 +41,14 @@ use Illuminate\Support\Facades\Route;
     // return new \Illuminate\Http\Response('hello', 200);
 // });
 
-// Route::get('/', function () {
+// Route::get('security/individual', function () {
 //     return view('welcome');
 // });
 
-Auth::routes(['verify' => true , 'individualVerify' => true]);
+Auth::routes(['verify' => true ]);
+// Auth::routes(['individualVerify' => true]);
 
-Route::middleware(['web', 'verified'])->group(function () {
+Route::middleware(['web','verified'])->group(function () {
     //
     Route::get('/home', 'HomeController@index')->name('home');
 });
@@ -56,6 +59,15 @@ Route::middleware(['role:admin,add user', 'verified'])->group(function () {
     	return 'Admin panel';
     });
 });
+
+Route::middleware(['web','verified'])->group(function () {
+    //
+    Route::get('security/individual', 'Auth\IndividualVerificationController@show')->name('security.individual');
+    Route::get('security/verify', 'Auth\IndividualVerificationController@showForm')->name('security.verify');
+    Route::post('security/verify', 'Auth\IndividualVerificationController@sendForm')->name('security.verify');
+  
+});
+
 
 // Route::group(['middleware' => ['role:admin','verified']], function () {
 //     Route::group(['middleware' => 'role:admin,add user'], function () {

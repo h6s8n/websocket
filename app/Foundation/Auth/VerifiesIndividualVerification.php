@@ -14,12 +14,13 @@ trait VerifiesIndividualVerification
 
     public function show(Request $request)
     {
+        // dd("show notice");
     	// dd(! is_null($this->email_verified_at));
     	// return ($this->email_verified_at);
 
-        return $request->user()->hasVerifiedIndividualVerification()
-                ? redirect($this->redirectPath())
-                : view('auth.verify');
+        // return $request->user()->hasVerifiedIndividualVerification()
+        //         ? redirect($this->redirectPath())
+        //         : view('auth.verify');
 
 
         // $files = auth()->user()->files()->latest()->finished()->get();
@@ -27,7 +28,7 @@ trait VerifiesIndividualVerification
         //     'files' => $files
         // ]);
 
-    	// return view('auth.security.notice');
+    	return view('auth.security.notice');
     	
     }
 
